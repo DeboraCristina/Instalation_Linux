@@ -21,10 +21,8 @@ cd $HOME
 configurar_git
 configurar_python
 gerar_chave_ssh
-instalar_programas
+instalar_tudo
 checar_chave_github
-
-firefox $MediBangLink
 
 if [ "$chave_adicionada" == "true" ]
 then
