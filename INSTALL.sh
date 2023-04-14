@@ -18,10 +18,10 @@ source "$local_dos_arquivos/configurar_zsh.sh"
 # INSTALANDO
 cd $HOME
 
+instalar_tudo
 configurar_git
 configurar_python
 gerar_chave_ssh
-instalar_tudo
 checar_chave_github
 
 if [ "$chave_adicionada" == "true" ]

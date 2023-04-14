@@ -9,7 +9,6 @@ instalar_programas_basicos()
 	instalar python3-pip
 	instalar vim
 	instalar zsh
-	instalar tldr # substitue a flag --help
 	instalar bat # substitue cat
 }
 
@@ -18,6 +17,7 @@ instalar_programas_repositorio()
 	instalar virtualbox
 	instalar megasync
 	instalar nemo-megasync
+	instalar tldr # substitue a flag --help
 }
 
 instalar_programas_flatpak()
