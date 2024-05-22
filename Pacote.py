@@ -1,4 +1,4 @@
-import os
+from Utils import *
 
 
 class Pacote:
@@ -42,24 +42,20 @@ class Pacote:
         self.__download()
         deb = self.pacote.split('/')[-1]
         cmd = f'sudo apt install -y "$HOME/Downloads/{deb}"'
-        return self.__executar_comando(cmd)
+        return executar_comando(cmd)
     
     def __git_clone(self) -> int:
         cmd = f'git clone {self.pacote} $HOME/Downloads/GitClone/{self.nome}'
-        return self.__executar_comando(cmd)
+        return executar_comando(cmd)
     
     def __install_apt(self) -> int:
         cmd = f'sudo apt install -y {self.pacote}'
-        return self.__executar_comando(cmd)
+        return executar_comando(cmd)
 
     def __install_flatpack(self) -> int:
         cmd = f'sudo flatpak install -y {self.pacote}'
-        return self.__executar_comando(cmd)
+        return executar_comando(cmd)
 
     def __download(self) -> int:
         cmd = f'curl -o "$HOME/Downloads/{self.nome}" {self.pacote}'
-        return self.__executar_comando(cmd)
-
-    def __executar_comando(self, comando: str) -> int:
-        resultado = os.system(comando)
-        return resultado
+        return executar_comando(cmd)
