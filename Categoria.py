@@ -15,10 +15,12 @@ class Categoria:
         for pacote in self.pacotes:
             print(f'\t-> {pacote.nome}')
         print('')
+        return
 
     def instalar_todos(self) -> int:
         for pacote in self.pacotes:
             pacote.instalar()
+        return
 
     def instalar_pacote(self, nome_pacote: str) -> int:
         pacote = None
@@ -27,3 +29,4 @@ class Categoria:
                 pacote = p
                 break
         pacote.instalar()
+        return
