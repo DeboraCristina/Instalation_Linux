@@ -7,7 +7,7 @@ HOME = u.get_home()
 
 
 def instalacao_completa():
-    u.executar_comando('echo "COMPLETA" > $HOME/.tipo_instalacao.txt')
+    u.executar_comando('echo -n "COMPLETA" > $HOME/.tipo_instalacao.txt')
 
     u.apt_update()
 

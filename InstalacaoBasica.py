@@ -3,7 +3,7 @@ import Utils as u
 
 
 def instalacao_basica():
-    u.executar_comando('echo "BÁSICA" > $HOME/.tipo_instalacao.txt')
+    u.executar_comando('echo -n "BÁSICA" > $HOME/.tipo_instalacao.txt')
 
     u.apt_update()
 

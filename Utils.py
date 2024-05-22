@@ -37,3 +37,9 @@ def print_sucesso(msg):
 def print_falha(msg):
     print(f'\033[1;91m{msg}\033[0m')
     return
+
+
+def get_tipo_instalacao():
+    with open(f'{get_home()}/.tipo_instalacao.txt', 'r') as fd:
+        tipo = fd.read()
+    return tipo
