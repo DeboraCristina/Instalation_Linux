@@ -67,7 +67,9 @@ def escolher_programas(categoria: Categoria):
 
 def instalar_programas():
     if u.get_tipo_instalacao() != 'COMPLETA' and u.get_tipo_instalacao() != 'MANUAL':
-        raise Exception('É necessário ter feito a instalação completa ou manual \npara baixar os aplicativos')
+        u.print_falha('É necessário ter feito a instalação completa ou manual \npara baixar os aplicativos')
+        input('\t\t[pressione qualquer tecla para continuar...]')
+        return
     
     categorias = [
         terminal,             # 0 - 1
@@ -76,8 +78,6 @@ def instalar_programas():
         desenvolvimento,      # 3 - 4
         ferramentas,          # 4 - 5
     ]
-
-    desenvolvimento.selecionar_pacote('pycharm')
 
     menu = '===== Escolha uma categoria =====\n'
     cont = 1
@@ -107,6 +107,7 @@ def instalar_programas():
                 if conf == 'sim':
                     for cat in categorias:
                         cat.instalar_selecionados()
+                input('\t\t[...]')
             elif op == 6:
                 for cat in categorias:
                     cat.show_selecionados()

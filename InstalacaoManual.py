@@ -8,6 +8,7 @@ def main():
         if op == 'sim':
             u.executar_comando('echo -n "MANUAL" > $HOME/.tipo_instalacao.txt')
             u.print_sucesso('Instalação de programas habilitada')
+            input('...')
         if op == 'sim' or op == 'nao':
             break
         else:

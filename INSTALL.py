@@ -1,6 +1,7 @@
 import InstalacaoBasica as basica
 import InstalacaoCompleta as completa
 import InstalarProgramas as programas
+import InstalacaoManual as manual
 import Utils as u
 
 
@@ -20,7 +21,8 @@ def main():
 | [ 2 ] Instalação Completa                      |
 | [ 3 ] Baixar Programas                         |
 |             (Somente após instalação Completa) |
-| [ 4 ] Sair                                     |
+| [ 4 ] Afirmar Instalação Manual                |
+| [ 5 ] Sair                                     |
 +------------------------------------------------+
 """
 
@@ -32,7 +34,7 @@ def main():
         try:
             op = int(input(": "))
 
-            if op < 1 or op > 4:
+            if op < 1 or op > 5:
                 u.print_falha("Opção inválida")
                 print('\n\n\n')
                 input('\t\t[pressione qualquer tecla para continuar...]')
@@ -53,6 +55,8 @@ def main():
                     print('\n\n\n')
                     input('\t\t[pressione qualquer tecla para continuar...]')
                 if op == 4:
+                    manual.main()
+                if op == 5:
                     u.print_sucesso("Sistema encerrado")
                     print('\n\n\n')
                     input('\t\t[pressione qualquer tecla para continuar...]')
@@ -62,8 +66,9 @@ def main():
             print('\n\n\n')
             input('\t\t[pressione qualquer tecla para continuar...]')
             break
-        except:
-            u.print_falha("Opção inválida")
+        except Exception as e:
+            u.print_falha("Falha")
+            print(f'Erro: {e}')
             print('\n\n\n')
             input('\t\t[pressione qualquer tecla para continuar...]')
 
