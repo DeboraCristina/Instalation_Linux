@@ -6,6 +6,7 @@ class Pacote:
         self.instalador = instalador
         self.pacote = pacote
         self.nome = nome
+        self.nome_formatado = nome.replace(' ', '_') + '.deb'
 
         if self.instalador != 'apt' and self.instalador != 'flatpak' and self.instalador != 'dowload' \
             and self.instalador != 'deb' and self.instalador != 'git':
@@ -40,12 +41,11 @@ class Pacote:
 
     def __install_deb(self) -> int:
         self.__download()
-        deb = self.pacote.split('/')[-1]
-        cmd = f'sudo apt install -y "$HOME/Downloads/{deb}"'
+        cmd = f'sudo apt install -y "$HOME/Downloads/InstallLinux/PacotesWeb/{self.nome_formatado}"'
         return executar_comando(cmd)
     
     def __git_clone(self) -> int:
-        cmd = f'git clone {self.pacote} $HOME/Downloads/GitClone/{self.nome}'
+        cmd = f'git clone {self.pacote} $HOME/Downloads/InstallLinux/GitClone/{self.nome}'
         return executar_comando(cmd)
     
     def __install_apt(self) -> int:
@@ -57,5 +57,6 @@ class Pacote:
         return executar_comando(cmd)
 
     def __download(self) -> int:
-        cmd = f'curl -o "$HOME/Downloads/{self.nome}" {self.pacote}'
+        link = self.pacote
+        cmd = f'curl -o "$HOME/Downloads/InstallLinux/PacotesWeb/{self.nome_formatado}" {link}'
         return executar_comando(cmd)
