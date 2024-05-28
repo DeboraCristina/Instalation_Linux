@@ -2,14 +2,22 @@ from Categoria import Categoria
 from Pacote import Pacote
 
 
+### TEMPLATE
+## NOVA CATEGORIA
+# nomeCategoria = Categoria('nomeCategoria')
+## ADD PACOTE
+# nomeCategoria.add_pacote(Pacote(instalador: str, pacote: str, nome: str))
+# nomeCategoria.add_pacote(Pacote(instalador='placeholder', pacote='placeholder', nome='placeholder'))
+
 terminal = Categoria('TERMINAL')
 terminal.add_pacote(Pacote('apt', 'tree', 'tree'))
 terminal.add_pacote(Pacote('apt', 'bat', 'bat'))
 
 web = Categoria('WEB')
-web.add_pacote(Pacote('deb', 'https://download5.operacdn.com/ftp/pub/opera/desktop/110.0.5130.23/linux/opera-stable_110.0.5130.23_amd64.deb', 'opera.deb'))
-web.add_pacote(Pacote('deb', 'https://mega.nz/linux/repo/xUbuntu_24.04/amd64/megasync-xUbuntu_24.04_amd64.deb', 'mega.nz deb'))
-web.add_pacote(Pacote('deb', 'https://download.anydesk.com/linux/anydesk_6.3.2-1_amd64.deb', 'anydesk deb'))
+web.add_pacote(Pacote('deb', 'https://download5.operacdn.com/ftp/pub/opera/desktop/110.0.5130.23/linux/opera-stable_110.0.5130.23_amd64.deb', 'Navegador Opera'))
+web.add_pacote(Pacote('deb', 'https://mega.nz/linux/repo/xUbuntu_24.04/amd64/megasync-xUbuntu_24.04_amd64.deb', 'Nuvem Mega'))
+web.add_pacote(Pacote('deb', 'https://download.anydesk.com/linux/anydesk_6.3.2-1_amd64.deb', 'Anydesk'))
+web.add_pacote(Pacote(instalador='deb', pacote='https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_125.0.2535.67-1_amd64.deb?brand=M102', nome='Navegador Edge'))
 
 notas_organizacao = Categoria('NOTAS/ORGANIZAÇÃO')
 notas_organizacao.add_pacote(Pacote('flatpak', 'flathub com.toolstack.Folio', 'Folio'))
@@ -33,6 +41,7 @@ ferramentas.add_pacote(Pacote('dowload', 'https://medibangpaint.com/static/insta
 ferramentas.add_pacote(Pacote('apt', 'mousepad', 'mousepad'))
 ferramentas.add_pacote(Pacote('apt', 'tilix', 'tilix'))
 ferramentas.add_pacote(Pacote('apt', 'flameshot', 'Flameshot'))
+ferramentas.add_pacote(Pacote(instalador='deb', pacote='https://download3.ebz.epson.net/dsc/f/03/00/15/64/87/08cd9b6782b8387cb5ddd27486da65fb2548f13a/epson-inkjet-printer-201207w_1.0.1-1_amd64.deb', nome='Driver Impressora L355'))
 
 pacotes_base = Categoria('PACOTES_BASE')
 pacotes_base.add_pacote(Pacote('apt', 'git', 'git'))
