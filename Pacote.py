@@ -2,10 +2,10 @@ from Utils import *
 
 
 class Pacote:
-    def __init__(self, instalador: str, pacote: str, nome: str) -> None:
-        self.instalador = instalador
-        self.pacote = pacote
-        self.nome = nome
+    def __init__(self, instalador: str, pacote: str, nome: str, arquivo_log: str) -> None:
+        self.instalador     = instalador
+        self.pacote         = pacote
+        self.nome           = nome
         self.nome_formatado = nome.replace(' ', '_') + '.deb'
 
         if self.instalador != 'apt' and self.instalador != 'flatpak' and self.instalador != 'dowload' \
@@ -40,6 +40,7 @@ class Pacote:
         return retorno
 
     def __install_deb(self) -> int:
+        self.nome = self.nome_formatado
         self.__download()
         cmd = f'sudo apt install -y "$HOME/Downloads/InstallLinux/PacotesWeb/{self.nome_formatado}"'
         return executar_comando(cmd)
@@ -58,5 +59,5 @@ class Pacote:
 
     def __download(self) -> int:
         link = self.pacote
-        cmd = f'curl -o "$HOME/Downloads/InstallLinux/PacotesWeb/{self.nome_formatado}" {link}'
+        cmd = f'curl -o "$HOME/Downloads/InstallLinux/PacotesWeb/{self.nome}" {link}'
         return executar_comando(cmd)

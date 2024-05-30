@@ -1,6 +1,8 @@
 from PacotesParaInstalacao import *
 import Utils as u
 
+HOME = u.get_home()
+
 
 def escolher_programas(categoria: Categoria):
     pacotes = categoria.pacotes
@@ -126,4 +128,9 @@ def instalar_programas():
     return
 
 if __name__ == '__main__':
+    u.diretorio_existe(f'{HOME}/Downloads')
+    u.diretorio_existe(f'{HOME}/Downloads/GitClone')
+    u.diretorio_existe(f'{HOME}/Downloads/InstallLogs')
+    u.diretorio_existe(f'{HOME}/Downloads/InstallLinux')
+    u.diretorio_existe(f'{HOME}/Downloads/InstallLinux/PacotesWeb')
     instalar_programas()
