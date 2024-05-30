@@ -1,7 +1,15 @@
 import Utils as u
 
-def clonar_mylinux():
-    u.executar_comando('git clone git@github.com:DeboraCristina/My-Linux.git $HOME/My-Linux')
+def clonar_mylinux(ssh_ativo: bool = True):
+    link_ssh = 'git@github.com:DeboraCristina/My-Linux.git'
+    link_http = 'https://github.com/DeboraCristina/My-Linux.git'
+    destino = '$HOME/My-Linux'
+    
+    link_padrao = link_ssh
+    if not ssh_ativo:
+        link_padrao = link_http
+
+    u.executar_comando(f'git clone {link_padrao} {destino}')
     return
 
 
@@ -21,8 +29,9 @@ def config_zsh():
     return
 
 
-def configura_teminal():
-    clonar_mylinux()
+def configura_teminal(tipo_configuracao:str = 'completa'):
+    clonar_mylinux(tipo_configuracao == 'completa')
+    
     config_vim()
     config_zsh()
     return
