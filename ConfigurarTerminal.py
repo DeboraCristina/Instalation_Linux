@@ -38,4 +38,4 @@ def configura_teminal(tipo_configuracao:str = 'completa'):
 
 
 if __name__ == '__main__':
-    configura_temina(tipo_configuracao='BÁSICA')
+    configura_teminal(tipo_configuracao='BÁSICA')
