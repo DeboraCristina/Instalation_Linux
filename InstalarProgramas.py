@@ -116,6 +116,7 @@ def instalar_programas():
                 input('\t\t[...]')
             elif op >= 1 and op <= 5:
                 escolher_programas(categorias[op-1])
+                input('\t\t[pressione qualquer tecla para continuar...]')
 
         except KeyboardInterrupt:
             u.print_falha("\nFuncuonalidade encerrada de forma inesperada... :(")

@@ -35,3 +35,7 @@ def configura_teminal(tipo_configuracao:str = 'completa'):
     config_vim()
     config_zsh()
     return
+
+
+if __name__ == '__main__':
+    configura_temina(tipo_configuracao='BÁSICA')
