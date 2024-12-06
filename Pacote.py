@@ -25,23 +25,23 @@ class Pacote:
                 ***************\033[0m')
             retorno = self.__git_clone()
             print('')
-        if instalador == 'deb':
+        elif instalador == 'deb':
             print(f'\033[1;92m\t\t\t*************** Instalando {self.nome} \
                 ***************\033[0m')
             self.nome = self.nome_formatado
             retorno = self.__install_deb()
             print('')
-        if instalador == 'apt':
+        elif instalador == 'apt':
             print(f'\033[1;92m\t\t\t*************** Instalando {self.nome} \
                 ***************\033[0m')
             retorno = self.__install_apt()
             print('')
-        if instalador == 'flatpak':
+        elif instalador == 'flatpak':
             print(f'\033[1;92m\t\t\t*************** Instalando {self.nome} \
                 ***************\033[0m')
             retorno = self.__install_flatpack()
             print('')
-        if instalador == 'dowload':
+        elif instalador == 'dowload':
             print(f'\033[1;92m\t\t\t*************** Baixando {self.nome} \
                 ***************\033[0m')
             self.nome = self.pacote.split('/')[-1]
