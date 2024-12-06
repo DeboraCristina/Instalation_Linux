@@ -1,7 +1,7 @@
 import InstalacaoBasica as basica
 import InstalacaoCompleta as completa
 import InstalarProgramas as programas
-import InstalacaoManual as manual
+import InstalacaoManual as set_manual
 import Utils as u
 
 
@@ -20,8 +20,8 @@ def main():
 | [ 1 ] Instalação Básica                        |
 | [ 2 ] Instalação Completa                      |
 | [ 3 ] Baixar Programas                         |
-|             (Somente após instalação Completa) |
-| [ 4 ] Afirmar Instalação Manual                |
+|   (Somente após instalação Completa ou Manual) |
+| [ 4 ] Habiltar Instalação Manual               |
 | [ 5 ] Sair                                     |
 +------------------------------------------------+
 """
@@ -39,33 +39,39 @@ def main():
                 print('\n\n\n')
                 input('\t\t[pressione qualquer tecla para continuar...]')
             else:
+                
                 if op == 1:
                     u.print_sucesso("Escolheu Instalação Básica")
                     print('\n\n\n')
                     input('\t\t[pressione qualquer tecla para continuar...]')
                     basica.instalacao_basica()
+                
                 if op == 2:
                     u.print_sucesso("Escolheu Instalação Completa")
                     print('\n\n\n')
                     input('\t\t[pressione qualquer tecla para continuar...]')
                     completa.instalacao_completa()
+                
                 if op == 3:
                     programas.instalar_programas()
-                    print('Pode acessar essa funcionalidade mais vezes')
                     print('\n\n\n')
                     input('\t\t[pressione qualquer tecla para continuar...]')
+                
                 if op == 4:
-                    manual.main()
+                    set_manual.main()
+                
                 if op == 5:
                     u.print_sucesso("Sistema encerrado")
                     print('\n\n\n')
                     input('\t\t[pressione qualquer tecla para continuar...]')
                     break
+        
         except KeyboardInterrupt:
             u.print_falha("\nSistema encerrado")
             print('\n\n\n')
             input('\t\t[pressione qualquer tecla para continuar...]')
             break
+        
         except Exception as e:
             u.print_falha("Falha")
             print(f'Erro: {e}')

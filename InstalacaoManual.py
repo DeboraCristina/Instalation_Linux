@@ -12,7 +12,7 @@ def main():
         if op == 'sim' or op == 'nao':
             break
         else:
-            u.print_falha('Ação inváçida!')
+            u.print_falha('Ação inválida!')
 
 if __name__ == '__main__':
     main()
