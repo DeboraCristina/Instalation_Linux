@@ -7,7 +7,7 @@ from Pacote import Pacote
 # nomeCategoria = Categoria('nomeCategoria')
 ## ADD PACOTE
 # nomeCategoria.add_pacote(Pacote(instalador: str, pacote: str, nome: str))
-# nomeCategoria.add_pacote(Pacote(instalador='placeholder', pacote='placeholder', nome='placeholder'))
+# nomeCategoria.add_pacote(Pacote(nome='placeholder', instalador='placeholder', pacote='placeholder', ))
 
 terminal = Categoria('TERMINAL')
 terminal.add_pacote(Pacote('apt', 'tree', 'tree'))
@@ -43,6 +43,7 @@ ferramentas.add_pacote(Pacote('apt', 'flameshot', 'Flameshot'))
 ferramentas.add_pacote(Pacote(instalador='deb', pacote='https://download3.ebz.epson.net/dsc/f/03/00/15/64/87/08cd9b6782b8387cb5ddd27486da65fb2548f13a/epson-inkjet-printer-201207w_1.0.1-1_amd64.deb', nome='Driver Impressora L355' ))
 ferramentas.add_pacote(Pacote('apt', 'mousepad','mousepad'))
 ferramentas.add_pacote(Pacote('flatpak', 'flathub com.usebottles.bottles', 'Bottles Flatpak'))
+ferramentas.add_pacote(Pacote(nome='Bottles Legado', instalador='deb', pacote='https://github.com/bottlesdevs/Bottles/releases/download/continuous-v1/bottles.0458cc87dbd02c7acae52873806b764ea288dfd9.deb', ))
 ferramentas.add_pacote(Pacote(nome='CopyQ', instalador='flatpak', pacote='flathub com.github.hluk.copyq'))
 ferramentas.add_pacote(Pacote(nome='Editor tipo mousePad', instalador='flatpak', pacote='flathub org.gnome.TextEditor' ))
 ferramentas.add_pacote(Pacote(nome='AntiMicroX', instalador='flatpak', pacote='flathub io.github.antimicrox.antimicrox'))
