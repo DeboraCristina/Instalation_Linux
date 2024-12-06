@@ -13,11 +13,13 @@ def escolher_programas(categoria: Categoria):
         categoria.show()
         p_selecionados = categoria.pacotes_selecionados
 
-        print('Escolha os apps desejados')
-        print('*1,2,4*, *1-3*, *4* (Digitar o msm num deseleciona)')
-        print('[i] Instala Selecionados; [l] Limpa Seleção; [v] Volta')
+        print('Escolha os pacotes desejados')
+        print('*1,2,4*; *1-3*; *4*')
+        print('(Escolher a mesma opção, a deseleciona)')
+        print('[i] Instala Selecionados; [l] Limpa Seleção; [v] Volta; [t] Todos')
         op = input(': ')
 
+        # Se for escolhido apenas 1 pacote
         if op.isdigit():
             op = int(op)-1
             try:
@@ -28,6 +30,8 @@ def escolher_programas(categoria: Categoria):
                     categoria.selecionar_pacote(p.nome)
             except Exception as e:
                 pass
+        
+        # Se for escolhido um range de pacotes
         elif op.replace(' ', '').replace('-', '').replace(',', '').isnumeric():
             if op.count('-') == 1:
                 index = op.split('-')
@@ -60,6 +64,12 @@ def escolher_programas(categoria: Categoria):
                 categoria.instalar_selecionados()
         elif op.lower() == 'l':
             categoria.limpar_selecao()
+        elif op.lower() == 't':
+            for pacote in pacotes:
+                try:
+                    categoria.selecionar_pacote(pacote.nome)
+                except:
+                    pass
         elif op.lower() == 'v':
             break
         else:
@@ -119,7 +129,7 @@ def instalar_programas():
                 input('\t\t[pressione qualquer tecla para continuar...]')
 
         except KeyboardInterrupt:
-            u.print_falha("\nFuncuonalidade encerrada de forma inesperada... :(")
+            u.print_falha("\nFuncionalidade encerrada de forma inesperada... :(")
             break
         except:
             u.print_falha("Opção inválida")
