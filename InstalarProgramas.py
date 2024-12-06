@@ -89,6 +89,7 @@ def instalar_programas():
         notas_organizacao,    # 2 - 3
         desenvolvimento,      # 3 - 4
         ferramentas,          # 4 - 5
+        graficos_e_jogos,     # 5 - 6
     ]
 
     menu = '===== Escolha uma categoria =====\n'
@@ -112,19 +113,19 @@ def instalar_programas():
             if op < 1 or op > cont:
                 raise Exception()
             
-            if op == 8:
+            if op == cont:
                 break
-            if op == 7:
+            if op == (cont - 1):
                 conf = input('Tem certeza? [sim/não] ')
                 if conf == 'sim':
                     for cat in categorias:
                         cat.instalar_selecionados()
                 input('\t\t[...]')
-            elif op == 6:
+            elif op == (cont - 2):
                 for cat in categorias:
                     cat.show_selecionados()
                 input('\t\t[...]')
-            elif op >= 1 and op <= 5:
+            elif op >= 1 and op <= (cont - 3):
                 escolher_programas(categorias[op-1])
                 input('\t\t[pressione qualquer tecla para continuar...]')
 
